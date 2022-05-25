@@ -24,3 +24,8 @@ def find_anagram(word, anagram):
 
     return True
 
+# Check
+print(find_anagram('elbow', 'below'))  # Returns True
+print(find_anagram('William Shakespeare', 'I am a weakish speller'))  # Returns True 
+print(find_anagram('hello', 'check'))  # Returns False
+print(find_anagram('New York TiMes', 'moNKEY Writes'))  # Returns True
