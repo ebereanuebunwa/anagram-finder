@@ -1,4 +1,5 @@
 # Check if two words are anagrams 
+import string 
 
 
 def find_anagram(word, anagram):
@@ -8,10 +9,16 @@ def find_anagram(word, anagram):
     # 3. Both words are equal in length.
 
     # Append all the letters in word and anagram to two separate lists.
-    # An anagram could be a word or a phrase.
+    # An anagram could be a word or a phrase. 
+    # Filter off punctuations and white spaces.
 
-    word_list = [letter.lower() for letter in word if letter != ' ']
-    anagram_list = [letter.lower() for letter in anagram if letter != ' ']
+    word_list = [letter.lower()
+                 for letter in word
+                 if letter not in string.punctuation + ' ']
+
+    anagram_list = [letter.lower()
+                    for letter in anagram
+                    if letter not in string.punctuation + ' ']
 
     # sort both lists to have uniform arrangements using the sorted() function 
     sorted_word_list = sorted(word_list)
@@ -24,8 +31,10 @@ def find_anagram(word, anagram):
 
     return True
 
+
 # Check
 print(find_anagram('elbow', 'below'))  # Returns True
-print(find_anagram('William Shakespeare', 'I am a weakish speller'))  # Returns True 
+print(find_anagram('William Shakespeare', 'I am a weakish speller'))  # Returns True
 print(find_anagram('hello', 'check'))  # Returns False
-print(find_anagram('New York TiMes', 'moNKEY Writes'))  # Returns True
+print(find_anagram('New York TiMes', 'moNKEYs Write'))  # Returns True
+print(find_anagram('She Sells Sanctuary', 'Santa; shy, less cruel'))  # Returns True
